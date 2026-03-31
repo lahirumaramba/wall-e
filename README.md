@@ -2,6 +2,8 @@
 
 This project brings a "brain" to an interactive picture frame (nicknamed **Wall-E**), powered by the **Google Gemini API**. It captures voice commands, processes them using Gemini's multimodal capabilities, and displays generated art on a Pimoroni Inky Impression e-ink display.
 
+Full build video on [YouTube](https://youtu.be/_-2Q8pRQm-8)
+
 ![Wall-E](wall_e.jpg)
 
 ---
