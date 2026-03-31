@@ -1,0 +1,23 @@
+[project]
+name = "wall-e"
+version = "0.1.0"
+description = "An interactive E-ink picture frame"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "google-genai>=1.68.0",
+    "numpy>=2.4.3",
+    "pillow>=12.1.1",
+    "python-dotenv>=1.2.2",
+    "scipy>=1.17.1",
+    "sounddevice>=0.5.5",
+]
+
+[project.optional-dependencies]
+pi = [
+    "inky>=1.5.0",
+    "gpiod>=2.3.0",
+    "gpiodevice>=0.0.1",
+]
+
+

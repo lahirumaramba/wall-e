@@ -1,0 +1,36 @@
+[Unit]
+Description=Wall-E Brain Service
+After=network.target sound.target
+Wants=sound.target
+
+[Service]
+# Run as your user to ensure access to your home directory and audio
+User=<YOUR_USERNAME>
+Group=<YOUR_USERNAME>
+
+# Set the working directory to your project root
+WorkingDirectory=/home/<YOUR_USERNAME>/<YOUR_PROJECT_PATH>
+
+# Pre-Start: Give any late-starting Desktop audio services 2 seconds to appear.
+ExecStartPre=+/bin/sleep 2
+
+# Pre-Start: Kill any process holding the audio device (like PulseAudio)
+# Using 'sh -c' ensures the wildcard (*) is expanded correctly by a shell.
+# The '+' prefix runs this command as root even if the service runs as a user.
+# '-' means it's okay if it fails (e.g. if no process is holding the device).
+ExecStartPre=-+/bin/sh -c '/bin/fuser -k /dev/snd/* || true'
+
+# Use the python interpreter from the uv-managed venv
+# -u for unbuffered logs in journalctl
+ExecStart=/home/<YOUR_USERNAME>/<YOUR_PROJECT_PATH>/.venv/bin/python -u brain.py
+
+# Restart automatically if it crashes
+Restart=on-failure
+RestartSec=5
+
+# Ensure output goes to system logs (journalctl)
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
