@@ -1,6 +1,6 @@
 # An Interactive E-ink Picture Frame (Wall-E)
 
-This project brings a "brain" to an interactive picture frame (nicknamed **Wall-E**), powered by the **Google Gemini API**. It captures voice commands, processes them using Gemini's multimodal capabilities, and displays generated art on a Pimoroni Inky Impression e-ink display.
+This project brings a "brain" to an interactive picture frame (nicknamed **Wall-E**), powered by the Google Gemini API. It captures voice commands, processes them using Gemini's multimodal capabilities, and displays generated art on a Pimoroni Inky Impression e-ink display.
 
 Full build video on [YouTube](https://youtu.be/_-2Q8pRQm-8)
 
@@ -16,6 +16,26 @@ Full build video on [YouTube](https://youtu.be/_-2Q8pRQm-8)
 - **Audio Feedback**: Features a custom soundboard for system status (activation, processing, success, and errors).
 - **Event-Driven**: Triggered by physical hardware buttons.
 - **Production-Ready**: Includes a systemd service for autonomous operation on startup.
+
+---
+
+## 🔌 Hardware
+
+- **Controller**: Raspberry Pi Zero 2W
+- **Display**: Pimoroni Inky Impression 7.3" (600x448) Spectra e-ink
+- **Audio Input**: USB Microphone
+- **Audio Output**: [MAX98357 I2S Class-D Mono Amp](https://learn.adafruit.com/adafruit-max98357-i2s-class-d-mono-amp/raspberry-pi-wiring)
+- **Enclosure**: [3D-Printed 7.3" Frame](https://makerworld.com/en/models/1482862-inky-impression-2025-edition-7-3-frame#profileId-1548643) (Remixed by TrisM)
+
+### Amp Wiring (Raspberry Pi)
+
+| Amp Pin | Raspberry Pi Pin |
+| :--- | :--- |
+| Vin | 5V Power |
+| GND | Ground |
+| DIN | GPIO 21 |
+| BCLK | GPIO 18 |
+| LRCLK | GPIO 19 |
 
 ---
 
@@ -44,7 +64,7 @@ source $HOME/.local/bin/env
 ### 2. Transfer the Code
 Clone this repository to your Pi:
 ```bash
-git clone https://github.com/YOUR_USERNAME/wall-e.git
+git clone https://github.com/lahirumaramba/wall-e.git
 cd wall-e
 ```
 
@@ -99,18 +119,11 @@ To run the project automatically on boot:
 
 The `labs/` directory contains secondary, experimental scripts:
 - `labs/brain_mac.py`: A version of the brain optimized for local Mac testing without e-ink hardware.
-- `pimoroni_examples/`: Reference code for Pimoroni hardware.
 
 ---
 
 ## 🙏 Credits & Acknowledgments
 
 - **Sound Effects**: All sound files used in this project are sourced from [freesound.org](https://freesound.org).
-- **Gemini API**: Powered by Google's Gemini models.
+- **3D-Printed Enclosure**: Inky Impression (2025 Edition) 7.3" Frame Remixed by [TrisM](https://makerworld.com/en/models/1482862-inky-impression-2025-edition-7-3-frame#profileId-1548643).
 - **Hardware**: Built for the Pimoroni Inky Impression series.
-
----
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
