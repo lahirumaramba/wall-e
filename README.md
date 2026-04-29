@@ -4,7 +4,9 @@ This project brings a "brain" to an interactive picture frame (nicknamed **Wall-
 
 Full build video on [YouTube](https://youtu.be/_-2Q8pRQm-8)
 
-![Wall-E](wall_e.jpg)
+<a href="https://youtu.be/_-2Q8pRQm-8" target="_blank">
+  <img src="wall_e.jpg" alt="Full Build Video on YouTube" width="600">
+</a>
 
 ---
 
